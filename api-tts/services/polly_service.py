@@ -13,13 +13,24 @@ create_bucket(bucket_name, region)
 
 # Função para gerar áudio e armazenar no S3
 def generate_audio_and_store_in_s3(phrase, unique_id):
-    response = polly.synthesize_speech(
-        Text=phrase,
-        OutputFormat='mp3',
-        VoiceId='Thiago'
-    )
+    # Especifica o engine 'neural' e a voz 'Thiago' para português
+    engine = 'neural'
+    voice_id = 'Thiago'
 
-    audio_key = f'audio-{unique_id}.mp3'
-    s3.put_object(Bucket=bucket_name, Key=audio_key, Body=response['AudioStream'].read())
-    
-    return f'https://{bucket_name}.s3.amazonaws.com/{audio_key}'
+    # Tenta sintetizar o discurso usando Polly
+    try:
+        response = polly.synthesize_speech(
+            Text=phrase,
+            OutputFormat='mp3',
+            VoiceId=voice_id,
+            Engine=engine  # Especifica o engine como 'neural'
+        )
+
+        audio_key = f'audio-{unique_id}.mp3'
+        s3.put_object(Bucket=bucket_name, Key=audio_key, Body=response['AudioStream'].read())
+
+        return f'https://{bucket_name}.s3.amazonaws.com/{audio_key}'
+
+    except Exception as e:
+        print(f"Erro ao gerar áudio: {e}")
+        raise e
