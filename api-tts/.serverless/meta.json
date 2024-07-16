@@ -1,0 +1,186 @@
+{
+  "C:\\Sprint-6-7\\api-tts": {
+    "versionSfCore": null,
+    "versionFramework": "4.1.12",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {},
+    "composeServiceName": null,
+    "servicePath": "C:\\Sprint-6-7\\api-tts",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "api-tts",
+      "frameworkVersion": "4.1.11",
+      "provider": {
+        "name": "aws",
+        "runtime": "python3.9",
+        "region": "us-east-1",
+        "iam": {
+          "role": {
+            "statements": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "dynamodb:GetItem",
+                  "dynamodb:PutItem"
+                ],
+                "Resource": "arn:aws:dynamodb:us-east-1:058264405205:table/tabletts"
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "s3:PutObject"
+                ],
+                "Resource": "arn:aws:s3:::bucketsprint6-7/*"
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "polly:SynthesizeSpeech"
+                ],
+                "Resource": "*"
+              }
+            ]
+          }
+        },
+        "stage": "dev",
+        "versionFunctions": true
+      },
+      "functions": {
+        "health": {
+          "handler": "handler.health",
+          "events": [
+            {
+              "httpApi": {
+                "path": "/",
+                "method": "get"
+              }
+            }
+          ],
+          "name": "api-tts-dev-health"
+        },
+        "v1Description": {
+          "handler": "handler.v1_description",
+          "events": [
+            {
+              "httpApi": {
+                "path": "/v1",
+                "method": "get"
+              }
+            }
+          ],
+          "name": "api-tts-dev-v1Description"
+        },
+        "text_to_speech": {
+          "handler": "handler.text_to_speech",
+          "events": [
+            {
+              "httpApi": {
+                "path": "/v1/tts",
+                "method": "post"
+              }
+            }
+          ],
+          "name": "api-tts-dev-text_to_speech"
+        }
+      },
+      "resources": {
+        "Resources": {
+          "TTSTable": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+              "TableName": "tabletts",
+              "AttributeDefinitions": [
+                {
+                  "AttributeName": "unique_id",
+                  "AttributeType": "S"
+                }
+              ],
+              "KeySchema": [
+                {
+                  "AttributeName": "unique_id",
+                  "KeyType": "HASH"
+                }
+              ],
+              "ProvisionedThroughput": {
+                "ReadCapacityUnits": 1,
+                "WriteCapacityUnits": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "serviceRawFile": "service: api-tts\nframeworkVersion: \"4.1.11\"\n\nprovider:\n  name: aws\n  runtime: python3.9\n  region: us-east-1\n\n  iam:\n    role:\n      statements:\n        - Effect: Allow\n          Action:\n            - dynamodb:GetItem\n            - dynamodb:PutItem\n          Resource: arn:aws:dynamodb:us-east-1:058264405205:table/tabletts\n        - Effect: Allow\n          Action:\n            - s3:PutObject\n          Resource: arn:aws:s3:::bucketsprint6-7/*\n        - Effect: Allow\n          Action:\n            - polly:SynthesizeSpeech\n          Resource: \"*\"\n\nfunctions:\n  health:\n    handler: handler.health\n    events:\n      - httpApi:\n          path: /\n          method: get\n\n  v1Description:\n    handler: handler.v1_description\n    events:\n      - httpApi:\n          path: /v1\n          method: get\n\n  text_to_speech:\n    handler: handler.text_to_speech\n    events:\n      - httpApi:\n          path: /v1/tts\n          method: post\n\nresources:\n  Resources:\n    TTSTable:\n      Type: AWS::DynamoDB::Table\n      Properties:\n        TableName: tabletts\n        AttributeDefinitions:\n          - AttributeName: unique_id\n            AttributeType: S\n        KeySchema:\n          - AttributeName: unique_id\n            KeyType: HASH\n        ProvisionedThroughput:\n          ReadCapacityUnits: 1\n          WriteCapacityUnits: 1",
+    "command": [
+      "remove"
+    ],
+    "options": {},
+    "error": null,
+    "params": {},
+    "machineId": "a5f391e5a0fa32e29cc25b962e48679a",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "31f35319-8437-44b8-9fea-7616f31353e5",
+    "orgName": "leonardoloureiro",
+    "userId": "QD0k3R3NhjVmZdKNVH",
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "leonardoloureiro",
+    "subscription": null,
+    "userEmail": "lloureiro44@gmail.com",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "058264405205",
+    "versionSf": "4.1.12",
+    "serviceProviderAwsCfStackName": "api-tts-dev",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:058264405205:stack/api-tts-dev/805740a0-43b8-11ef-9bee-0e886524088f",
+    "serviceProviderAwsCfStackCreated": "2024-07-16T21:15:17.860Z",
+    "serviceProviderAwsCfStackUpdated": "2024-07-16T21:15:51.471Z",
+    "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
+    "serviceProviderAwsCfStackOutputs": [
+      {
+        "OutputKey": "V1DescriptionLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:058264405205:function:api-tts-dev-v1Description:20",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-api-tts-dev-V1DescriptionLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "TextUnderscoretoUnderscorespeechLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:058264405205:function:api-tts-dev-text_to_speech:12",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-api-tts-dev-TextUnderscoretoUnderscorespeechLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "HealthLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:058264405205:function:api-tts-dev-health:20",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-api-tts-dev-HealthLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "HttpApiId",
+        "OutputValue": "xwpkywpjr2",
+        "Description": "Id of the HTTP API",
+        "ExportName": "sls-api-tts-dev-HttpApiId"
+      },
+      {
+        "OutputKey": "ServerlessDeploymentBucketName",
+        "OutputValue": "api-tts-dev-serverlessdeploymentbucket-zlf92ukpes5b",
+        "ExportName": "sls-api-tts-dev-ServerlessDeploymentBucketName"
+      },
+      {
+        "OutputKey": "HttpApiUrl",
+        "OutputValue": "https://xwpkywpjr2.execute-api.us-east-1.amazonaws.com",
+        "Description": "URL of the HTTP API",
+        "ExportName": "sls-api-tts-dev-HttpApiUrl"
+      }
+    ]
+  }
+}
