@@ -196,7 +196,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1721164546012-2024-07-16T21:15:46.012Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1721174805011-2024-07-17T00:06:45.011Z/api-tts.zip"
         },
         "Handler": "handler.health",
         "Runtime": "python3.9",
@@ -221,7 +221,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1721164546012-2024-07-16T21:15:46.012Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1721174805011-2024-07-17T00:06:45.011Z/api-tts.zip"
         },
         "Handler": "handler.v1_description",
         "Runtime": "python3.9",
@@ -246,7 +246,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1721164546012-2024-07-16T21:15:46.012Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1721174805011-2024-07-17T00:06:45.011Z/api-tts.zip"
         },
         "Handler": "handler.text_to_speech",
         "Runtime": "python3.9",
@@ -264,34 +264,34 @@
         "TextUnderscoretoUnderscorespeechLogGroup"
       ]
     },
-    "HealthLambdaVersionh26YoVrKloDbhQgGIa71Ja6LjxNAHB5eIhMKrtc998Y": {
+    "HealthLambdaVersionYoZhazFMw78SURB97Z4hmgZprVIQSctqgxQSKQHpuc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "HealthLambdaFunction"
         },
-        "CodeSha256": "jGXppQCmvj21lyhXa1jDyCqJzfdlxbXQmljWM/wzeGw="
+        "CodeSha256": "ow7Xv9ml41Uqrjk53/JUvmTxfbEzRf1A+5vz23K16HQ="
       }
     },
-    "V1DescriptionLambdaVersionPdwdeTGz0BG34qZFFJwxFFK59WM3hfaROalkpQpOc": {
+    "V1DescriptionLambdaVersionPhUTTQK6slSFpHdaJXlusm6YefzvQZQBoY6gLw4WJyg": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "V1DescriptionLambdaFunction"
         },
-        "CodeSha256": "jGXppQCmvj21lyhXa1jDyCqJzfdlxbXQmljWM/wzeGw="
+        "CodeSha256": "ow7Xv9ml41Uqrjk53/JUvmTxfbEzRf1A+5vz23K16HQ="
       }
     },
-    "TextUnderscoretoUnderscorespeechLambdaVersionBo4k6LTA8ST1HQcrKJyEaT1EzuCm4PmJHnRh4GoqU": {
+    "TextUnderscoretoUnderscorespeechLambdaVersionDa7IoLaS6Vx6ImV8i90sSxjy5eT3SsFXfsb0qmNApw4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "TextUnderscoretoUnderscorespeechLambdaFunction"
         },
-        "CodeSha256": "jGXppQCmvj21lyhXa1jDyCqJzfdlxbXQmljWM/wzeGw="
+        "CodeSha256": "ow7Xv9ml41Uqrjk53/JUvmTxfbEzRf1A+5vz23K16HQ="
       }
     },
     "HttpApi": {
@@ -574,7 +574,7 @@
     "HealthLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "HealthLambdaVersionh26YoVrKloDbhQgGIa71Ja6LjxNAHB5eIhMKrtc998Y"
+        "Ref": "HealthLambdaVersionYoZhazFMw78SURB97Z4hmgZprVIQSctqgxQSKQHpuc"
       },
       "Export": {
         "Name": "sls-api-tts-dev-HealthLambdaFunctionQualifiedArn"
@@ -583,7 +583,7 @@
     "V1DescriptionLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "V1DescriptionLambdaVersionPdwdeTGz0BG34qZFFJwxFFK59WM3hfaROalkpQpOc"
+        "Ref": "V1DescriptionLambdaVersionPhUTTQK6slSFpHdaJXlusm6YefzvQZQBoY6gLw4WJyg"
       },
       "Export": {
         "Name": "sls-api-tts-dev-V1DescriptionLambdaFunctionQualifiedArn"
@@ -592,7 +592,7 @@
     "TextUnderscoretoUnderscorespeechLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "TextUnderscoretoUnderscorespeechLambdaVersionBo4k6LTA8ST1HQcrKJyEaT1EzuCm4PmJHnRh4GoqU"
+        "Ref": "TextUnderscoretoUnderscorespeechLambdaVersionDa7IoLaS6Vx6ImV8i90sSxjy5eT3SsFXfsb0qmNApw4"
       },
       "Export": {
         "Name": "sls-api-tts-dev-TextUnderscoretoUnderscorespeechLambdaFunctionQualifiedArn"
