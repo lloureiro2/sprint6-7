@@ -13,11 +13,11 @@ provider:
           Action:
             - dynamodb:GetItem
             - dynamodb:PutItem
-          Resource: arn:aws:dynamodb:us-east-1:058264405205:table/tabletts
+          Resource: arn:aws:dynamodb:us-east-1:"id da sua conta":table/"nome da sua tabela do DynamoDB"
         - Effect: Allow
           Action:
             - s3:PutObject
-          Resource: arn:aws:s3:::bucketsprint6-7/*
+          Resource: arn:aws:s3:::"seu bucket"/*
         - Effect: Allow
           Action:
             - polly:SynthesizeSpeech
@@ -50,7 +50,7 @@ resources:
     TTSTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: tabletts
+        TableName: "nome da sua tabela do DynamoDB"
         AttributeDefinitions:
           - AttributeName: unique_id
             AttributeType: S

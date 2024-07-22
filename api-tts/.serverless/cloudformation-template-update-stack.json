@@ -153,14 +153,14 @@
                     "dynamodb:GetItem",
                     "dynamodb:PutItem"
                   ],
-                  "Resource": "arn:aws:dynamodb:us-east-1:058264405205:table/tabletts"
+                  "Resource": "arn:aws:dynamodb:us-east-1:905418439254:table/tabletts"
                 },
                 {
                   "Effect": "Allow",
                   "Action": [
                     "s3:PutObject"
                   ],
-                  "Resource": "arn:aws:s3:::bucketsprint6-7/*"
+                  "Resource": "arn:aws:s3:::bucketemanuleo/*"
                 },
                 {
                   "Effect": "Allow",
@@ -196,7 +196,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1721174805011-2024-07-17T00:06:45.011Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1721589902613-2024-07-21T19:25:02.613Z/api-tts.zip"
         },
         "Handler": "handler.health",
         "Runtime": "python3.9",
@@ -221,7 +221,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1721174805011-2024-07-17T00:06:45.011Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1721589902613-2024-07-21T19:25:02.613Z/api-tts.zip"
         },
         "Handler": "handler.v1_description",
         "Runtime": "python3.9",
@@ -246,7 +246,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/api-tts/dev/1721174805011-2024-07-17T00:06:45.011Z/api-tts.zip"
+          "S3Key": "serverless/api-tts/dev/1721589902613-2024-07-21T19:25:02.613Z/api-tts.zip"
         },
         "Handler": "handler.text_to_speech",
         "Runtime": "python3.9",
@@ -264,34 +264,34 @@
         "TextUnderscoretoUnderscorespeechLogGroup"
       ]
     },
-    "HealthLambdaVersionYoZhazFMw78SURB97Z4hmgZprVIQSctqgxQSKQHpuc": {
+    "HealthLambdaVersionSCe3AFE2pjOTsVReoJnCEUSsQbRBhv768ZmurA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "HealthLambdaFunction"
         },
-        "CodeSha256": "ow7Xv9ml41Uqrjk53/JUvmTxfbEzRf1A+5vz23K16HQ="
+        "CodeSha256": "HZWUPtjj0242JohC7yuzVYEB0rIDzJYa3/Kb6+F2zjE="
       }
     },
-    "V1DescriptionLambdaVersionPhUTTQK6slSFpHdaJXlusm6YefzvQZQBoY6gLw4WJyg": {
+    "V1DescriptionLambdaVersionUJrtwdBG1HSK9aaLwsDC82KWvXrbYFjimiBN7ygB9Q": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "V1DescriptionLambdaFunction"
         },
-        "CodeSha256": "ow7Xv9ml41Uqrjk53/JUvmTxfbEzRf1A+5vz23K16HQ="
+        "CodeSha256": "HZWUPtjj0242JohC7yuzVYEB0rIDzJYa3/Kb6+F2zjE="
       }
     },
-    "TextUnderscoretoUnderscorespeechLambdaVersionDa7IoLaS6Vx6ImV8i90sSxjy5eT3SsFXfsb0qmNApw4": {
+    "TextUnderscoretoUnderscorespeechLambdaVersiontdVTZwMv73TNMmco22MkSzZqrTNUlCketOtn0ANhc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "TextUnderscoretoUnderscorespeechLambdaFunction"
         },
-        "CodeSha256": "ow7Xv9ml41Uqrjk53/JUvmTxfbEzRf1A+5vz23K16HQ="
+        "CodeSha256": "HZWUPtjj0242JohC7yuzVYEB0rIDzJYa3/Kb6+F2zjE="
       }
     },
     "HttpApi": {
@@ -574,7 +574,7 @@
     "HealthLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "HealthLambdaVersionYoZhazFMw78SURB97Z4hmgZprVIQSctqgxQSKQHpuc"
+        "Ref": "HealthLambdaVersionSCe3AFE2pjOTsVReoJnCEUSsQbRBhv768ZmurA"
       },
       "Export": {
         "Name": "sls-api-tts-dev-HealthLambdaFunctionQualifiedArn"
@@ -583,7 +583,7 @@
     "V1DescriptionLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "V1DescriptionLambdaVersionPhUTTQK6slSFpHdaJXlusm6YefzvQZQBoY6gLw4WJyg"
+        "Ref": "V1DescriptionLambdaVersionUJrtwdBG1HSK9aaLwsDC82KWvXrbYFjimiBN7ygB9Q"
       },
       "Export": {
         "Name": "sls-api-tts-dev-V1DescriptionLambdaFunctionQualifiedArn"
@@ -592,7 +592,7 @@
     "TextUnderscoretoUnderscorespeechLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "TextUnderscoretoUnderscorespeechLambdaVersionDa7IoLaS6Vx6ImV8i90sSxjy5eT3SsFXfsb0qmNApw4"
+        "Ref": "TextUnderscoretoUnderscorespeechLambdaVersiontdVTZwMv73TNMmco22MkSzZqrTNUlCketOtn0ANhc"
       },
       "Export": {
         "Name": "sls-api-tts-dev-TextUnderscoretoUnderscorespeechLambdaFunctionQualifiedArn"

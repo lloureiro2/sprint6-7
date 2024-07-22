@@ -4,7 +4,7 @@ import boto3 # type: ignore
 # Inicia a sessão boto3 e cria recurso para DynamoDB
 session = boto3.Session()
 dynamodb = session.resource('dynamodb')
-table = dynamodb.Table('tabletts')
+table = dynamodb.Table('Nome da sua tabela DynamoDB')
 
 # Função para salvar dados no DynamoDB
 def save_to_dynamodb(phrase, unique_id, audio_url):

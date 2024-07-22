@@ -6,7 +6,7 @@ session = boto3.Session()
 polly = session.client('polly')
 s3 = session.client('s3')
 region = session.region_name
-bucket_name = 'bucketsprint6-7'
+bucket_name = 'seu Bucket'
 
 # Cria o bucket se ele não existir
 create_bucket(bucket_name, region)
